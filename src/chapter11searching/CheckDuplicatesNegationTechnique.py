@@ -10,13 +10,12 @@
 
 import math
 def CheckDuplicatesNegationTechnique(A):
-	A.sort()
 	for i in range(0, len(A)):
 		if(A[abs(A[i])] < 0):
 			print("Duplicates exist:", A[i])
 			return
 		else:
-			A[A[i]] = -A[A[i]]
+			A[abs(A[i])] *= -1
 			
 	print("No duplicates in given array.")
 

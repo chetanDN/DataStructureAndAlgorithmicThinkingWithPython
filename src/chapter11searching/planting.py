@@ -1,4 +1,4 @@
-# Copyright (c) Dec 22, 2014 CareerMonk Publications and others.
+# Copyright (c) Oct 22, 2018 CareerMonk Publications and others.
 # E-Mail           		: info@careermonk.com 
 # Creation Date    		: 2014-01-10 06:15:46 
 # Last modification		: 2008-10-31 
@@ -8,18 +8,15 @@
 # 				   warranty; without even the implied warranty of 
 # 				    merchantability or fitness for a particular purpose. 
 
-def pair_sum_k_sorting(A, K):
-    left = 0
-    right = len(A) - 1; 
-    while(left < right):
-         if(A[left] + A[right] == K):
-              return 1
-         elif(A[left] + A[right] < K):
-              left += 1
-         else:
-              right -= 1
-    return 0
-    
-A = [1, 4, 45, 6, 10, -8]
-A.sort()
-print pair_sum_k_sorting(A, 11)
+def planting(A, K):
+	counter = 0
+	for i in range(0,len(A)):
+		if (A[i] == 0 and (i == 0 or A[i-1] ==0) and ( i == len(A)-1 or A[i+1] == 0)):
+			A[i] = 1
+			counter += 1
+			if counter == K:
+				return True, A
+	return False
+
+print planting([1,0,0,0,1,0,0], 2)
+print planting([1,0,0,0,1,0,0], 3)
